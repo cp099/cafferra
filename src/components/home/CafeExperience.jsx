@@ -27,12 +27,10 @@ export default function CafeExperience() {
 
   return (
     <section id="experience" className="py-24 bg-cafferra-cream border-t border-cafferra-forest/10 relative overflow-hidden">
-      {/* Compatibility anchor */}
       <span id="vibe" className="sr-only" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         
-        {/* Section Header */}
         <div className="max-w-3xl mb-16 space-y-4">
           <Badge variant="sage">The Experience</Badge>
           <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-cafferra-forest tracking-tight uppercase leading-tight">
@@ -43,10 +41,8 @@ export default function CafeExperience() {
           </p>
         </div>
 
-        {/* Asymmetrical Gallery & Pillars Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left: 4 Pillars List */}
           <div className="lg:col-span-5 space-y-6">
             {pillars.map((pillar) => (
               <div 
@@ -68,7 +64,6 @@ export default function CafeExperience() {
             ))}
           </div>
 
-          {/* Right: Photo Composition & Kannada Tribute Card */}
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 relative">
             <div className="space-y-6">
               <div className="rounded-3xl overflow-hidden aspect-[4/5] shadow-cafferra-soft border border-cafferra-forest/10 bg-cafferra-forest/5">
@@ -83,7 +78,6 @@ export default function CafeExperience() {
                 />
               </div>
 
-              {/* Kannada Cultural Tribute Card from Client Brief */}
               <div className="p-6 rounded-3xl bg-cafferra-forest text-cafferra-cream space-y-2.5 shadow-cafferra-soft">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-bold uppercase tracking-widest text-cafferra-gold">
@@ -102,11 +96,11 @@ export default function CafeExperience() {
               </div>
             </div>
 
-            <div className="space-y-6 sm:pt-10">
+            <div className="space-y-6 sm:pt-12">
               <div className="rounded-3xl overflow-hidden aspect-square shadow-cafferra-soft border border-cafferra-forest/10 bg-cafferra-forest/5">
                 <img
-                  src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=800&q=80"
-                  alt="Outdoor cafe patio with people enjoying cold beverages, coffee, and comfort food"
+                  src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+                  alt="Warm cafe ambiance with seating, plants, and natural light"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   loading="lazy"
                   decoding="async"
@@ -114,16 +108,17 @@ export default function CafeExperience() {
                   height="800"
                 />
               </div>
-              <div className="rounded-3xl overflow-hidden aspect-[4/3] shadow-cafferra-soft border border-cafferra-forest/10 bg-cafferra-forest/5">
-                <img
-                  src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80"
-                  alt="Barista pouring latte art cappuccino with precision"
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                  loading="lazy"
-                  decoding="async"
-                  width="800"
-                  height="600"
-                />
+
+              <div className="p-6 rounded-3xl bg-cafferra-cream-warm border border-cafferra-forest/10 space-y-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-cafferra-sage">
+                  Gatherings &amp; Community
+                </span>
+                <p className="text-sm font-semibold text-cafferra-forest leading-snug">
+                  From morning filter kaapi rituals to evening pasta &amp; conversations.
+                </p>
+                <p className="text-xs text-cafferra-forest/75 leading-relaxed">
+                  A place where traditional tastes and modern lifestyles thrive together effortlessly.
+                </p>
               </div>
             </div>
           </div>

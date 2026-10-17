@@ -34,7 +34,6 @@ export default function LegalModal({ isOpen, onClose, activeTab = 'privacy', onT
         className="relative w-full max-w-3xl max-h-[85vh] bg-cafferra-cream rounded-3xl border border-cafferra-forest/20 shadow-2xl flex flex-col overflow-hidden text-cafferra-forest"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Modal Header */}
         <div className="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-cafferra-forest/10 bg-cafferra-cream-warm">
           <div className="flex items-center gap-3">
             <button
@@ -73,7 +72,6 @@ export default function LegalModal({ isOpen, onClose, activeTab = 'privacy', onT
           </button>
         </div>
 
-        {/* Modal Body */}
         <div className="overflow-y-auto px-6 sm:px-8 py-6 space-y-6 text-sm text-cafferra-taupe leading-relaxed">
           {activeTab === 'privacy' ? (
             <div className="space-y-6 text-left">
@@ -130,7 +128,7 @@ export default function LegalModal({ isOpen, onClose, activeTab = 'privacy', onT
                   4. Data Storage &amp; Infrastructure
                 </h4>
                 <p>
-                  Data submitted via our website is stored using enterprise-grade infrastructure via Google Cloud / Firebase Firestore, backed by local cryptographic browser isolation. Communications occur over TLS 1.3 / HTTPS encryption.
+                  Data submitted via our website is stored using secure cloud infrastructure via Google Cloud / Firebase Firestore. Communications occur over TLS 1.3 / HTTPS encryption.
                 </p>
               </section>
 
@@ -220,7 +218,6 @@ export default function LegalModal({ isOpen, onClose, activeTab = 'privacy', onT
           )}
         </div>
 
-        {/* Modal Footer */}
         <div className="px-6 sm:px-8 py-4 border-t border-cafferra-forest/10 bg-cafferra-cream-warm flex items-center justify-between">
           <p className="text-[11px] text-cafferra-taupe">
             © Cafferra®. All Rights Reserved. Indian Roots. Global Flavours is a proprietary trademark.

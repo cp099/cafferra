@@ -1,30 +1,15 @@
 import React from 'react';
 
-/**
- * AmbientBackground:
- * A pure abstract, minimalist, and hardware-accelerated animated translucent SVG background.
- *
- * Designed strictly for modern aesthetics without figurative illustrations:
- * - Fluid mathematical bezier wave ribbons spanning diagonally across the canvas
- * - Multi-layered harmonic contour lines with delicate gradient strokes
- * - Minimalist concentric geometric orbital arcs with slow, meditative rotational drifts
- * - Soft diffuse ambient color glows adding warmth, depth, and tactile luxury
- *
- * Configured at subtle 6–18% translucent opacities so it eliminates blankness
- * while keeping all typography, buttons, cards, and imagery completely readable.
- */
 export default function AmbientBackground() {
   return (
     <div 
       aria-hidden="true" 
       className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none"
     >
-      {/* 1. Diffuse Ambient Color Aurora Glows */}
       <div className="absolute -top-32 -left-20 w-[42rem] h-[42rem] rounded-full bg-gradient-to-br from-cafferra-gold/12 via-cafferra-sage/6 to-transparent blur-3xl opacity-75 animate-pulse duration-10000" />
       <div className="absolute top-1/4 -right-28 w-[45rem] h-[45rem] rounded-full bg-gradient-to-bl from-cafferra-sage/14 via-cafferra-forest/6 to-transparent blur-3xl opacity-65 animate-ambient-drift-2" />
       <div className="absolute bottom-10 -left-28 w-[40rem] h-[40rem] rounded-full bg-gradient-to-tr from-cafferra-gold/10 via-cafferra-cream-warm to-transparent blur-3xl opacity-60 animate-ambient-drift-1" />
 
-      {/* 2. Abstract Vector Linework Canvas */}
       <svg
         className="absolute inset-0 w-full h-full"
         xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +17,6 @@ export default function AmbientBackground() {
         viewBox="0 0 1440 960"
       >
         <defs>
-          {/* Abstract Sinuous Gradient Ribbons */}
           <linearGradient id="abstract-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#354C38" stopOpacity="0.0" />
             <stop offset="25%" stopColor="#6E8755" stopOpacity="0.18" />
@@ -61,7 +45,6 @@ export default function AmbientBackground() {
           </radialGradient>
         </defs>
 
-        {/* --- LAYER A: UPPER ABSTRACT FLOW RIBBONS (Slow Undulating Drift) --- */}
         <g className="animate-ambient-steam opacity-80">
           <path
             d="M -100,180 C 180,80 340,320 620,190 C 900,60 1120,310 1540,160"
@@ -92,7 +75,6 @@ export default function AmbientBackground() {
           />
         </g>
 
-        {/* --- LAYER B: MINIMALIST CONCENTRIC ORBITAL ARCS (Slow Meditative Rotation) --- */}
         <g transform="translate(1180, 240)">
           <g className="animate-spin-ultra-slow opacity-75">
             <circle
@@ -135,7 +117,6 @@ export default function AmbientBackground() {
           </g>
         </g>
 
-        {/* --- LAYER C: MID-CANVAS DIAGONAL ABSTRACT SPLINES (Organic Fluid Shift) --- */}
         <g className="animate-ambient-drift-1 opacity-70">
           <path
             d="M -120,620 C 160,440 420,780 760,560 C 1080,350 1280,680 1580,490"
@@ -159,7 +140,6 @@ export default function AmbientBackground() {
           />
         </g>
 
-        {/* --- LAYER D: LOWER ABSTRACT TOPOGRAPHIC HARMONICS --- */}
         <g className="animate-ambient-drift-2 opacity-65">
           <path
             d="M -80,820 C 260,710 520,950 860,780 C 1180,620 1360,880 1560,740"
@@ -183,7 +163,6 @@ export default function AmbientBackground() {
           />
         </g>
 
-        {/* --- LAYER E: SECONDARY MINIMALIST ORBIT (Bottom-Left) --- */}
         <g transform="translate(160, 780)">
           <g className="animate-spin-ultra-slow opacity-60">
             <ellipse
@@ -210,16 +189,13 @@ export default function AmbientBackground() {
           </g>
         </g>
 
-        {/* --- LAYER F: ABSTRACT FLOATING GEOMETRIC NODES --- */}
         <g className="animate-ambient-steam opacity-60">
           <circle cx="240" cy="220" r="3" fill="#EBC869" fillOpacity="0.35" />
           <circle cx="280" cy="190" r="1.5" fill="#354C38" fillOpacity="0.25" />
           <circle cx="680" cy="340" r="2.5" fill="#6E8755" fillOpacity="0.3" />
           <circle cx="720" cy="370" r="1.5" fill="#EBC869" fillOpacity="0.35" />
-          <circle cx="1080" cy="540" r="3" fill="#EBC869" fillOpacity="0.3" />
-          <circle cx="1120" cy="570" r="2" fill="#354C38" fillOpacity="0.2" />
-          <circle cx="480" cy="720" r="2.5" fill="#6E8755" fillOpacity="0.25" />
-          <circle cx="880" cy="840" r="3" fill="#EBC869" fillOpacity="0.3" />
+          <circle cx="1140" cy="620" r="2" fill="#354C38" fillOpacity="0.25" />
+          <circle cx="1260" cy="580" r="3.5" fill="#EBC869" fillOpacity="0.3" />
         </g>
       </svg>
     </div>

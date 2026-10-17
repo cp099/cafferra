@@ -46,7 +46,6 @@ export default function DualCraftStory() {
     <section id="concept" className="py-24 bg-cafferra-cream border-b border-cafferra-forest/10 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         
-        {/* Section Header */}
         <div className="max-w-3xl mb-16 space-y-4">
           <Badge variant="gold">Indo-Western Concept</Badge>
           <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-cafferra-forest tracking-tight uppercase leading-tight">
@@ -57,10 +56,9 @@ export default function DualCraftStory() {
           </p>
         </div>
 
-        {/* 2-Column Split: Indian Roots vs Global Flavours */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 mb-20">
           
-          {/* Card 1: Indian Roots */}
+          {/* Indian Roots */}
           <div className="bg-cafferra-cream-warm/50 rounded-3xl p-8 sm:p-10 border border-cafferra-forest/10 shadow-cafferra-soft flex flex-col justify-between group hover:border-cafferra-gold/50 transition-all duration-300">
             <div className="space-y-6">
               <div className="flex items-center justify-between">
@@ -81,7 +79,6 @@ export default function DualCraftStory() {
                 From the comforting aroma of freshly brewed South Indian filter kaapi in traditional dabarah sets to the irresistible crunch of golden dosas, soft steamed idlis, and crispy vadas. Authentic flavours crafted with heirloom recipes and warm hospitality.
               </p>
 
-              {/* Sensory Highlights */}
               <div className="flex flex-wrap gap-2 pt-2">
                 {['Degree Filter Kaapi', 'Artisanal Crispy Dosa', 'Steamed Idli & Vada', 'Authentic Sambar & Chutneys'].map((tag) => (
                   <span
@@ -107,7 +104,7 @@ export default function DualCraftStory() {
             </div>
           </div>
 
-          {/* Card 2: Global Flavours */}
+          {/* Global Flavours */}
           <div className="bg-cafferra-cream-warm/50 rounded-3xl p-8 sm:p-10 border border-cafferra-forest/10 shadow-cafferra-soft flex flex-col justify-between group hover:border-cafferra-sage/40 transition-all duration-300">
             <div className="space-y-6">
               <div className="flex items-center justify-between">
@@ -128,7 +125,6 @@ export default function DualCraftStory() {
                 Skillfully extracted espresso, creamy cappuccinos, iced refreshers, artisan pastas, and gourmet grilled sourdough sandwiches. Created for quick morning coffee breaks, afternoon work sessions, and lively evenings with friends.
               </p>
 
-              {/* Sensory Highlights */}
               <div className="flex flex-wrap gap-2 pt-2">
                 {['Velvety Cappuccino', 'Al Dente Pasta', 'Toasted Gourmet Panini', 'Artisanal Cold Brew'].map((tag) => (
                   <span
@@ -156,7 +152,6 @@ export default function DualCraftStory() {
 
         </div>
 
-        {/* Menu Categories Grid Anchor */}
         <div id="menu" className="pt-4 mb-20 scroll-mt-24">
           <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
             <span className="text-xs font-bold tracking-widest uppercase text-cafferra-gold-dark">
@@ -216,7 +211,6 @@ export default function DualCraftStory() {
           </div>
         </div>
 
-        {/* The Client Brand Promise Banner (Preserves exact #FFFAEA watermark emblem) */}
         <div className="mt-12 p-8 sm:p-12 rounded-3xl bg-cafferra-forest text-cafferra-cream relative overflow-hidden shadow-cafferra-card">
           <div className="relative z-10 max-w-2xl space-y-3">
             <p className="text-xs font-bold tracking-widest uppercase text-cafferra-gold">
@@ -233,7 +227,6 @@ export default function DualCraftStory() {
             </div>
           </div>
           
-          {/* Pristine #FFFAEA cream hand logo watermark with exact original dimensions and placement */}
           <div 
             aria-hidden="true" 
             className="absolute -right-8 -bottom-10 opacity-15 pointer-events-none w-64 h-64"

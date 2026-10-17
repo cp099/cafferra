@@ -29,7 +29,6 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between">
-        {/* Brand Logo & Indo-Western Descriptor */}
         <a 
           href="/" 
           aria-label="Cafferra Indo-Western Cafe" 
@@ -47,7 +46,6 @@ export default function Navbar() {
           </span>
         </a>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8" aria-label="Main Navigation">
           {navLinks.map((link) => (
             <a
@@ -60,7 +58,6 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Right Action */}
         <div className="hidden md:flex items-center gap-4">
           <a
             href="#updates"
@@ -71,7 +68,6 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Hamburger Button */}
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -83,7 +79,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <nav 
           aria-label="Mobile Navigation Drawer"
@@ -103,9 +98,10 @@ export default function Navbar() {
             <a
               href="#updates"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-center w-full py-3.5 rounded-full bg-cafferra-forest text-cafferra-cream text-xs font-semibold tracking-wider uppercase shadow-cafferra-soft min-h-[44px] flex items-center justify-center"
+              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full bg-cafferra-forest text-cafferra-cream text-xs font-semibold tracking-wider uppercase shadow-cafferra-soft"
             >
-              Get Opening Updates
+              <span>Opening Updates</span>
+              <ArrowUpRight className="w-4 h-4 text-cafferra-gold" />
             </a>
           </div>
         </nav>

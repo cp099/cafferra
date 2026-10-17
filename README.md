@@ -11,13 +11,13 @@
 | **Production Web Gateway** | ![Production Status](https://img.shields.io/website?down_color=red&down_message=offline&label=Site&up_color=brightgreen&up_message=Operational&url=https%3A%2F%2Fcafferra.com) | GitHub Pages Anycast Edge CDN | [cafferra.com](https://cafferra.com) |
 | **CI/CD Deployment** | [![Deploy Cafferra to GitHub Pages](https://github.com/cp099/cafferra/actions/workflows/deploy.yml/badge.svg)](https://github.com/cp099/cafferra/actions/workflows/deploy.yml) | GitHub Actions Runner (Node 20) | [Build & Deploy Job](https://github.com/cp099/cafferra/actions) |
 | **SSL / TLS Certificate** | ![SSL Status](https://img.shields.io/badge/SSL-Active%20(TLS%201.3)-2ea44f?logo=letsencrypt) | Let's Encrypt Automated Authority | `https://cafferra.com` |
-| **Security & Pen-Testing** | ![Security Audit](https://img.shields.io/badge/Audit-33%2F33%20Passed-354C38?logo=shield) | Enterprise Anti-Injection & CSP Audit | `npm run test:security` |
+| **Security Audit** | ![Security Audit](https://img.shields.io/badge/Audit-33%2F33%20Passed-354C38?logo=shield) | Input Validation & CSP Tests | `npm run test:security` |
 | **Database & Waitlist** | ![Firestore](https://img.shields.io/badge/Firestore-Operational-FFCA28?logo=firebase) | Google Cloud Firestore | Collection: `waitlist` (Locked Rules) |
 | **Analytics & Telemetry** | ![Analytics](https://img.shields.io/badge/GA4-Active-E37400?logo=googleanalytics) | Google Analytics 4 | Measurement Protocol |
 
 ---
 
-### 🔒 Security & Hardening Scorecard
+### 🔒 Security Scorecard
 
 | Security Control | Policy Configuration | Status |
 | :--- | :--- | :---: |

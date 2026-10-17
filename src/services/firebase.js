@@ -1,8 +1,6 @@
 import { initializeApp, getApps } from 'firebase/app';
 import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
-// Firebase configuration for project 'cafferra'
-// Environment variables can override when deploying to production
 const firebaseConfig = {
   apiKey: import.meta.env?.VITE_FIREBASE_API_KEY || "your_firebase_api_key_here",
   authDomain: import.meta.env?.VITE_FIREBASE_AUTH_DOMAIN || "cafferra.firebaseapp.com",
@@ -12,7 +10,6 @@ const firebaseConfig = {
   appId: import.meta.env?.VITE_FIREBASE_APP_ID || "1:770462097442:web:352ddf0ef401abb98c6a7b",
 };
 
-// Initialize Firebase App gracefully
 let app;
 let db = null;
 
@@ -27,20 +24,15 @@ try {
   console.warn("Firebase initialization warning (using local fallback):", err);
 }
 
-// Strict security validation constants
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const MAX_EMAIL_LENGTH = 100;
 const MAX_SOURCE_LENGTH = 50;
 
 /**
- * Defensive email sanitization:
- * - Strips control characters (\x00-\x1F, \x7F) and whitespace
- * - Enforces length boundaries (prevents memory exhaustion)
- * - Verifies strict RFC-compliant email structure
+ * Validate and normalize email string.
  */
 export function sanitizeEmail(raw) {
   if (typeof raw !== 'string') return null;
-  // Immediately reject attack vectors containing null bytes or control characters
   if (/[\x00-\x1F\x7F]/.test(raw)) return null;
   const sanitized = raw.trim().toLowerCase();
   if (sanitized.length === 0 || sanitized.length > MAX_EMAIL_LENGTH) return null;
@@ -49,9 +41,7 @@ export function sanitizeEmail(raw) {
 }
 
 /**
- * Defensive metadata sanitizer:
- * - Prevents prototype pollution (__proto__, constructor)
- * - Whitelists only permitted properties with strict length boundaries
+ * Normalize submission metadata.
  */
 export function sanitizeMetadata(meta) {
   if (!meta || typeof meta !== 'object' || Array.isArray(meta)) return {};
@@ -66,12 +56,7 @@ export function sanitizeMetadata(meta) {
 }
 
 /**
- * Record a waitlist email submission with enterprise-grade defensive hardening.
- * Saves to Firebase Firestore 'waitlist' collection and mirrors to localStorage.
- *
- * @param {string} email - The subscriber's email address
- * @param {object} metadata - Optional metadata (source, preferences)
- * @returns {Promise<{success: boolean, id: string, source: 'firestore' | 'local'}>}
+ * Submit waitlist registration to Firestore with local storage backup.
  */
 export async function submitToWaitlist(email, metadata = {}) {
   const cleanEmail = sanitizeEmail(email);
@@ -90,7 +75,6 @@ export async function submitToWaitlist(email, metadata = {}) {
     ...(cleanMeta.clientTimestamp ? { clientTimestamp: cleanMeta.clientTimestamp } : {})
   };
 
-  // 1. Always save to LocalStorage backup first
   try {
     const rawStorage = localStorage.getItem('cafferra_waitlist');
     let existing = [];
@@ -105,7 +89,6 @@ export async function submitToWaitlist(email, metadata = {}) {
     const isDuplicate = existing.some(item => item && item.email === cleanEmail);
     if (!isDuplicate) {
       existing.push(entry);
-      // Bound localStorage array to prevent storage exhaustion attacks
       if (existing.length > 500) existing = existing.slice(-500);
       localStorage.setItem('cafferra_waitlist', JSON.stringify(existing));
     }
@@ -113,7 +96,6 @@ export async function submitToWaitlist(email, metadata = {}) {
     console.error("Local storage sync error:", localErr);
   }
 
-  // 2. Save to Firestore if available
   if (db) {
     try {
       const docRef = await addDoc(collection(db, 'waitlist'), {
@@ -130,9 +112,6 @@ export async function submitToWaitlist(email, metadata = {}) {
   return { success: true, id: `local-${Date.now()}`, source: 'local' };
 }
 
-/**
- * Helper to view all collected waitlist emails from local backup (useful for verification)
- */
 export function getLocalWaitlist() {
   try {
     return JSON.parse(localStorage.getItem('cafferra_waitlist') || '[]');

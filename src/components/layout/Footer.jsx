@@ -9,11 +9,7 @@ export default function Footer({ onOpenPrivacy, onOpenTerms, onOpenCookies }) {
   return (
     <footer className="bg-cafferra-forest-deep text-cafferra-cream border-t border-cafferra-forest/30 pt-16 pb-12 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        
-        {/* Main Footer Row */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-cafferra-forest/40">
-          
-          {/* Brand Info */}
           <div className="md:col-span-6 space-y-6">
             <img
               src="/brand/logo-cream-brand.png"
@@ -37,7 +33,6 @@ export default function Footer({ onOpenPrivacy, onOpenTerms, onOpenCookies }) {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div className="md:col-span-3 space-y-4">
             <h4 className="font-display text-sm font-bold uppercase tracking-wider text-cafferra-gold">
               Navigation
@@ -66,7 +61,6 @@ export default function Footer({ onOpenPrivacy, onOpenTerms, onOpenCookies }) {
             </ul>
           </div>
 
-          {/* Brand Presence & Legal */}
           <div className="md:col-span-3 space-y-4">
             <h4 className="font-display text-sm font-bold uppercase tracking-wider text-cafferra-gold">
               Legal &amp; Privacy
@@ -111,10 +105,8 @@ export default function Footer({ onOpenPrivacy, onOpenTerms, onOpenCookies }) {
               </p>
             </div>
           </div>
-
         </div>
 
-        {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cafferra-cream/70">
           <p>
             © Cafferra®. All Rights Reserved. Indian Roots. Global Flavours is a proprietary trademark.
@@ -130,7 +122,6 @@ export default function Footer({ onOpenPrivacy, onOpenTerms, onOpenCookies }) {
             </button>
           </div>
         </div>
-
       </div>
     </footer>
   );

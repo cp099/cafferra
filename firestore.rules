@@ -2,11 +2,7 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     
-    // Cafferra VIP Waitlist / Opening Updates collection
-    // Enterprise security configuration:
-    // 1. Zero public read: prevents data harvesting & customer email enumeration
-    // 2. Strict write-only validation schema: prevents payload tampering, NoSQL injection, and oversized payloads
-    // 3. Zero update/delete: prevents unauthorized modifications
+    // Waitlist collection: write-only with schema validation
     match /waitlist/{docId} {
       allow read: if false;
       allow update, delete: if false;
@@ -23,7 +19,7 @@ service cloud.firestore {
                     && request.resource.data.createdAt.size() <= 35;
     }
     
-    // Default deny: Block all other documents across the entire Firestore database
+    // Default deny
     match /{document=**} {
       allow read, write: if false;
     }

@@ -41,7 +41,7 @@ Thumbs.db
 .env.test.local
 .env.production.local
 
-# AI Agent Skills & Reference Tooling
+# Local Tooling & Reference Assets
 .agents/
 apple-design-skill-main/
 

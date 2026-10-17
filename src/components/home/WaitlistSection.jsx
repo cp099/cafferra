@@ -6,14 +6,13 @@ import { submitToWaitlist } from '../../services/firebase';
 import { logEvent } from '../../services/analytics';
 import { fireCafferraConfetti } from '../ui/Confetti';
 
-// Strict email regex for production validation
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-const SUBMISSION_COOLDOWN_MS = 30000; // 30 seconds spam throttling
+const SUBMISSION_COOLDOWN_MS = 30000;
 
 export default function WaitlistSection() {
   const [email, setEmail] = useState('');
-  const [honeypot, setHoneypot] = useState(''); // Anti-bot honeypot
-  const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
+  const [honeypot, setHoneypot] = useState('');
+  const [status, setStatus] = useState('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
   const validateEmail = (val) => {
@@ -32,14 +31,11 @@ export default function WaitlistSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // 1. Spam Protection: Honeypot trap check
     if (honeypot) {
-      console.warn('Bot submission trapped via honeypot.');
       setStatus('success');
       return;
     }
 
-    // 2. Form Validation: Email format check
     const validationError = validateEmail(email);
     if (validationError) {
       setStatus('error');
@@ -47,7 +43,6 @@ export default function WaitlistSection() {
       return;
     }
 
-    // 3. Spam Protection: Client-side rate-limiting cooldown
     try {
       const lastTs = localStorage.getItem('cafferra_last_notify_ts');
       if (lastTs && Date.now() - parseInt(lastTs, 10) < SUBMISSION_COOLDOWN_MS) {
@@ -56,7 +51,7 @@ export default function WaitlistSection() {
         return;
       }
     } catch {
-      // Ignore local storage read errors
+      // ignore storage errors
     }
 
     setStatus('submitting');
@@ -68,21 +63,17 @@ export default function WaitlistSection() {
         clientTimestamp: Date.now()
       });
 
-      // Update cooldown timestamp
       try {
         localStorage.setItem('cafferra_last_notify_ts', Date.now().toString());
       } catch {
-        // Ignore storage errors
+        // ignore storage errors
       }
 
-      // Log privacy-safe analytics
       logEvent('notify_signup', { source: 'arrival_form' });
-
       setStatus('success');
       fireCafferraConfetti();
     } catch (err) {
       console.error('Submission error:', err);
-      // LocalStorage backup handled in firebase service
       setStatus('success');
       fireCafferraConfetti();
     }
@@ -90,18 +81,14 @@ export default function WaitlistSection() {
 
   return (
     <section id="updates" className="py-24 bg-cafferra-cream-warm/80 border-b border-cafferra-forest/10 relative overflow-hidden">
-      {/* Invisible anchor for backward compatibility */}
       <span id="arrival" className="sr-only" />
 
-      {/* Soft background radial depth */}
       <div 
         aria-hidden="true" 
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[44rem] h-[44rem] bg-cafferra-sage/10 rounded-full blur-3xl pointer-events-none" 
       />
 
       <div className="max-w-5xl mx-auto px-6 sm:px-8 relative z-10">
-        
-        {/* Arrival Announcement Header */}
         <div className="text-center max-w-2xl mx-auto space-y-4 mb-12">
           <div className="inline-flex items-center gap-2">
             <Badge variant="gold">Indo-Western Café</Badge>
@@ -119,7 +106,6 @@ export default function WaitlistSection() {
           </p>
         </div>
 
-        {/* Email Notification Card - Apple HIG Clean Cinema Style */}
         <div className="max-w-xl mx-auto">
           {status === 'success' ? (
             <div className="p-8 sm:p-10 rounded-[2rem] bg-cafferra-cream border border-cafferra-sage/40 shadow-cafferra-card animate-fade-in text-center space-y-4">
@@ -152,7 +138,6 @@ export default function WaitlistSection() {
               </div>
 
               <form onSubmit={handleSubmit} noValidate className="space-y-3">
-                {/* Anti-spam honeypot (invisible to humans) */}
                 <div className="hidden" aria-hidden="true">
                   <input
                     type="text"

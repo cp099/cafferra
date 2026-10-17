@@ -42,13 +42,11 @@
   }
 }
 
-/* Subtle luxury grain effect */
 .bg-grain {
   background-image: radial-gradient(rgba(53, 76, 56, 0.04) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-/* Ambient Vector Hardware Acceleration & Accessibility */
 .animate-spin-ultra-slow {
   transform-box: fill-box;
   transform-origin: center;
@@ -62,7 +60,6 @@
   will-change: transform;
 }
 
-
 @media (prefers-reduced-motion: reduce) {
   .animate-spin-ultra-slow,
   .animate-ambient-drift-1,
@@ -72,4 +69,3 @@
     animation: none !important;
   }
 }
-

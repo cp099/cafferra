@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Production HTTPS Enforcement (Bypasses localhost to allow local development) -->
+    <!-- HTTPS Redirect -->
     <script>
       if (
         typeof window !== 'undefined' &&
@@ -16,7 +16,7 @@
       }
     </script>
 
-    <!-- Enterprise Security Policy & Hardening Headers (Safari & Localhost Compatible) -->
+    <!-- Security Headers -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://images.unsplash.com https://*.googleusercontent.com; connect-src 'self' ws: wss: http://localhost:* ws://localhost:* http://127.0.0.1:* ws://127.0.0.1:* https://*.firebaseio.com https://*.googleapis.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://*.firebaseapp.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self';" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-Frame-Options" content="DENY" />
@@ -32,14 +32,14 @@
     <meta name="theme-color" content="#354C38" />
     <link rel="canonical" href="https://cafferra.com/" />
 
-    <!-- Favicon & Icons -->
+    <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/brand/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/brand/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Open Graph / Facebook / WhatsApp -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://cafferra.com/" />
     <meta property="og:site_name" content="CAFFERRA®" />
@@ -51,7 +51,7 @@
     <meta property="og:image:alt" content="CAFFERRA - Indo-Western Café" />
     <meta property="og:locale" content="en_US" />
 
-    <!-- Twitter / X -->
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://cafferra.com/" />
     <meta name="twitter:title" content="CAFFERRA® | Indo-Western Café" />
@@ -59,7 +59,7 @@
     <meta name="twitter:image" content="https://cafferra.com/brand/og-image.png" />
     <meta name="twitter:image:alt" content="CAFFERRA Indo-Western Café" />
 
-    <!-- Fonts: Preconnect & Load Manrope -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />

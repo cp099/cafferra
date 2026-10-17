@@ -1,8 +1,3 @@
-/**
- * Privacy-friendly analytics and event tracking service for Cafferra®
- * Honors user consent, Do Not Track (DNT), and data minimization principles.
- */
-
 const STORAGE_CONSENT_KEY = 'cafferra_cookie_consent';
 
 export function getCookieConsent() {
@@ -31,11 +26,7 @@ export function isAnalyticsAllowed() {
 }
 
 /**
- * Log a structured user interaction event.
- * Dispatches to Google Analytics if available and consented, with silent debug telemetry.
- *
- * @param {string} eventName - e.g., 'notify_signup', 'cta_click', 'legal_view'
- * @param {object} params - additional contextual metadata
+ * Log structured event to GA4 when consented.
  */
 export function logEvent(eventName, params = {}) {
   try {
@@ -46,16 +37,14 @@ export function logEvent(eventName, params = {}) {
       ...params,
     };
 
-    // 1. Log to console during local development or when consent is granted
     if (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.DEV) {
-      console.log(`[Cafferra Analytics] ${eventName}:`, payload);
+      console.log(`[analytics] ${eventName}:`, payload);
     }
 
-    // 2. Dispatch to GA4 if loaded and consent granted
     if (typeof window !== 'undefined' && window.gtag && isAnalyticsAllowed()) {
       window.gtag('event', eventName, payload);
     }
-  } catch (err) {
-    // Analytics failures must never interrupt the user experience
+  } catch {
+    // ignore
   }
 }
