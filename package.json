@@ -11,18 +11,43 @@
   },
   "dependencies": {
     "canvas-confetti": "^1.9.4",
-    "firebase": "^10.14.1",
+    "firebase": "^11.5.0",
     "lucide-react": "^0.453.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@types/react": "^18.3.11",
-    "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.13",
-    "vite": "^5.4.8"
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.2.0"
+  },
+  "overrides": {
+    "@firebase/firestore": {
+      "@grpc/grpc-js": "^1.14.6"
+    },
+    "@grpc/grpc-js": "^1.14.6",
+    "chokidar": "^4.0.3",
+    "tailwindcss": {
+      "postcss-selector-parser": "7.1.6",
+      "micromatch": {
+        "braces": "3.0.3"
+      },
+      "fast-glob": {
+        "micromatch": {
+          "braces": "3.0.3"
+        }
+      }
+    },
+    "micromatch": {
+      "braces": "3.0.3"
+    },
+    "braces": "3.0.3",
+    "undici": "^6.29.1",
+    "esbuild": "^0.25.0",
+    "postcss-selector-parser": "7.1.6"
   }
 }
