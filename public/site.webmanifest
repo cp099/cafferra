@@ -1,0 +1,26 @@
+{
+  "name": "CAFFERRA® | Indo-Western Café",
+  "short_name": "CAFFERRA",
+  "description": "Indian Roots. Global Flavours. One café. Two food cultures. A world of flavour.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFAEA",
+  "theme_color": "#354C38",
+  "icons": [
+    {
+      "src": "/brand/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/brand/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/brand/logo-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

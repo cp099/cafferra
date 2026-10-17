@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Akira Expanded';
+  src: url('/fonts/Akira-Expanded.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #FFFAEA;
+    color: #354C38;
+  }
+
+  ::selection {
+    background-color: #EBC869;
+    color: #243426;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .tactile-btn {
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .tactile-btn:active {
+    transform: translateY(1px);
+  }
+}
+
+/* Subtle luxury grain effect */
+.bg-grain {
+  background-image: radial-gradient(rgba(53, 76, 56, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Ambient Vector Hardware Acceleration & Accessibility */
+.animate-spin-ultra-slow {
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.animate-ambient-drift-1,
+.animate-ambient-drift-2,
+.animate-ambient-steam,
+.animate-ambient-float {
+  will-change: transform;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin-ultra-slow,
+  .animate-ambient-drift-1,
+  .animate-ambient-drift-2,
+  .animate-ambient-steam,
+  .animate-ambient-float {
+    animation: none !important;
+  }
+}
+
