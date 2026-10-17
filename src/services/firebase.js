@@ -2,7 +2,7 @@ import { initializeApp, getApps } from 'firebase/app';
 import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: import.meta.env?.VITE_FIREBASE_API_KEY || "your_firebase_api_key_here",
+  apiKey: import.meta.env?.VITE_FIREBASE_API_KEY || "",
   authDomain: import.meta.env?.VITE_FIREBASE_AUTH_DOMAIN || "cafferra.firebaseapp.com",
   projectId: import.meta.env?.VITE_FIREBASE_PROJECT_ID || "cafferra",
   storageBucket: import.meta.env?.VITE_FIREBASE_STORAGE_BUCKET || "cafferra.firebasestorage.app",
@@ -14,12 +14,13 @@ let app;
 let db = null;
 
 try {
-  if (!getApps().length) {
+  if (firebaseConfig.apiKey && !getApps().length) {
     app = initializeApp(firebaseConfig);
-  } else {
+    db = getFirestore(app);
+  } else if (getApps().length) {
     app = getApps()[0];
+    db = getFirestore(app);
   }
-  db = getFirestore(app);
 } catch (err) {
   console.warn("Firebase initialization warning (using local fallback):", err);
 }
