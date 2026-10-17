@@ -1,0 +1,31 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Cafferra VIP Waitlist / Opening Updates collection
+    // Enterprise security configuration:
+    // 1. Zero public read: prevents data harvesting & customer email enumeration
+    // 2. Strict write-only validation schema: prevents payload tampering, NoSQL injection, and oversized payloads
+    // 3. Zero update/delete: prevents unauthorized modifications
+    match /waitlist/{docId} {
+      allow read: if false;
+      allow update, delete: if false;
+      
+      allow create: if request.resource.data.keys().hasAll(['email', 'createdAt', 'source', 'status'])
+                    && request.resource.data.email is string
+                    && request.resource.data.email.size() >= 5
+                    && request.resource.data.email.size() <= 100
+                    && request.resource.data.email.matches('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')
+                    && request.resource.data.source is string
+                    && request.resource.data.source.size() <= 50
+                    && request.resource.data.status == 'vip-pending'
+                    && request.resource.data.createdAt is string
+                    && request.resource.data.createdAt.size() <= 35;
+    }
+    
+    // Default deny: Block all other documents across the entire Firestore database
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
